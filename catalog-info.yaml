@@ -1,0 +1,9 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: "AdolfsenIsabella_NatComm"
+  description: "Scripts for the publication by Adolfsen, Isabella, et. al, Nature Communications, 2021"
+spec:
+  type: "Archival"
+  lifecycle: experimental
+  owner: "ds-designrec"

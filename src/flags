@@ -1,0 +1,13 @@
+# (c) Copyright 2021 Zymergen, Inc.
+# All rights reserved.
+# i/o
+-in:file:fasta /home/ec2-user/hal_hhsearch/hal.fasta
+-nstruct 20
+-parser:protocol rosetta_cm.xml
+
+# relax options
+-relax:dualspace
+-relax:jump_move true
+-default_max_cycles 200
+-beta_cart
+-hybridize:stage1_probability 1.0

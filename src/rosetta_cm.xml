@@ -1,0 +1,39 @@
+# (c) Copyright 2021 Zymergen, Inc.
+        # All rights reserved.
+<ROSETTASCRIPTS>
+    <TASKOPERATIONS>
+    </TASKOPERATIONS>
+    <SCOREFXNS>
+        <ScoreFunction name="stage1" weights="score3" symmetric="0">
+            <Reweight scoretype="atom_pair_constraint" weight="0.1"/>
+        </ScoreFunction>
+        <ScoreFunction name="stage2" weights="score4_smooth_cart" symmetric="0">
+            <Reweight scoretype="atom_pair_constraint" weight="0.1"/>
+        </ScoreFunction>
+        <ScoreFunction name="fullatom" weights="beta_cart" symmetric="0">
+            <Reweight scoretype="atom_pair_constraint" weight="0.1"/>
+        </ScoreFunction>
+    </SCOREFXNS>
+    <FILTERS>
+    </FILTERS>
+    <MOVERS>
+
+        <Hybridize name="hybridize" stage1_scorefxn="stage1" stage2_scorefxn="stage2" fa_scorefxn="fullatom" batch="1" stage1_increase_cycles="1.0" stage2_increase_cycles="1.0">
+            <Template pdb="/home/ec2-user/hal_hhsearch/rosetta_cm/1GK2A_201.pdb" cst_file="AUTO" weight="1.0" />
+            <Template pdb="/home/ec2-user/hal_hhsearch/rosetta_cm/3UNVA_202.pdb" cst_file="AUTO" weight="1.0" />
+            <Template pdb="/home/ec2-user/hal_hhsearch/rosetta_cm/1GKMA_203.pdb" cst_file="AUTO" weight="1.0" />
+            <Template pdb="/home/ec2-user/hal_hhsearch/rosetta_cm/2O6YE_204.pdb" cst_file="AUTO" weight="1.0" />
+            <Template pdb="/home/ec2-user/hal_hhsearch/rosetta_cm/2O7FA_205.pdb" cst_file="AUTO" weight="1.0" />
+            <Template pdb="/home/ec2-user/hal_hhsearch/rosetta_cm/2QVEB_206.pdb" cst_file="AUTO" weight="1.0" />
+            <Template pdb="/home/ec2-user/hal_hhsearch/rosetta_cm/5LTMA_207.pdb" cst_file="AUTO" weight="1.0" />
+            <Template pdb="/home/ec2-user/hal_hhsearch/rosetta_cm/2NYNA_208.pdb" cst_file="AUTO" weight="1.0" />
+            <Template pdb="/home/ec2-user/hal_hhsearch/rosetta_cm/1Y2MB_209.pdb" cst_file="AUTO" weight="1.0" />
+            <Template pdb="/home/ec2-user/hal_hhsearch/rosetta_cm/1W27B_210.pdb" cst_file="AUTO" weight="1.0" />
+        </Hybridize>
+    </MOVERS>
+    <APPLY_TO_POSE>
+    </APPLY_TO_POSE>
+    <PROTOCOLS>
+        <Add mover="hybridize"/>
+    </PROTOCOLS>
+</ROSETTASCRIPTS>
